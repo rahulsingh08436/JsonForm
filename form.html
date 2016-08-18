@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rahul's coding assignment</title>
+	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+body{
+    overflow-x:hidden;
+    padding-bottom:50px;
+  }
+    #myform{
+        margin-top:50px;
+    }
+
+    #add{
+        width:500px;
+    }
+
+        #header{
+            width: 97%;
+            height:100px;
+            background-color:#286090;
+            color:white;
+            font-size:45px;
+            font-weight:bold;
+            text-align:center;
+            padding-top:25px;
+            padding-bottom:25px;
+            border-radius: 5px;;
+            margin-left:20px;
+        }
+
+        #tableContainer{
+            margin-top:50px;
+            margin-left:20px;
+            margin-right: 20px;;
+        }
+
+
+
+
+    </style>
+
+    <script >
+
+
+        function InsertRecord(firstName,lastName,home){
+
+            var tBody = document.getElementById("tableBody");
+
+            var rowcount = tableBody.rows.length;
+            var row = tableBody.insertRow(rowcount);
+
+            row.insertCell(0).innerHTML= "<td align='center' style='width: 25%' >" + firstName + "</td>";
+            row.insertCell(1).innerHTML= "<td align='center' style='width: 25%' >" + lastName + "</td>";
+            row.insertCell(2).innerHTML="<td align='center' style='width: 25%' >" + home + "</td>";
+
+        }
+
+
+function createTable(){
+var arr = [ { first_name : 'Rose',
+                     last_name  : 'Tyler',
+                     home       : 'Earth' },
+                   { first_name : 'Zoe',
+                     last_name  : 'Heriot',
+                     home       : 'Space Station W3'},
+                   { first_name : 'Jo',
+                     last_name  : 'Grant',
+                     home       : 'Earth'},
+                   { first_name : 'Leela',
+                     last_name  : null,
+                     home       : 'Unspecified'},
+                   { first_name : 'Romana',
+                     last_name  : null,
+                     home       : 'Gallifrey'},
+                   { first_name : 'Clara',
+                     last_name  : 'Oswald',
+                     home       : 'Earth'},
+                   { first_name : 'Adric',
+                     last_name  : null,
+                     home       : 'Alzarius'},
+                   { first_name : 'Susan',
+                     last_name  : 'Foreman',
+                     home       : 'Gallifrey'} ];
+
+
+  var tBody = document.getElementById('tableBody');
+    for(var i=0; i < arr.length; i++){
+
+        InsertRecord(arr[i].first_name,arr[i].last_name,arr[i].home);
+
+    /*    var row = tableBody.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = "<td align='center' style='width: 25%' >" +  arr[i].first_name + "</td>";
+        cell2.innerHTML = "<td align='center' style='width: 25%' >" + arr[i].last_name + "</td>";
+        cell3.innerHTML = "<td align='center' style='width: 25%' >" + arr[i].home + "</td>"
+        console.log(arr[i].first_name);*/
+    }
+
+
+
+
+ /*   var i;
+    var out = "<table id=\"myTableData\"  border=\"1\" cellpadding=\"2\"><tr><td><b>"+"First Name"+"</b></td><td><b>"+"Last Name"+"</b></td><td><b>"+"Location"+"</b></td></tr>";
+	
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].first_name +
+        "</td><td>" +
+        arr[i].last_name +
+        "</td><td>" +
+        arr[i].home +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("mydata").innerHTML = out;*/
+}
+function Populate()
+{
+var myFName=document.getElementById("FName");
+var myLName=document.getElementById("LName");
+var myloc=document.getElementById("Loc");
+
+   /* alert(table);
+    alert('length is: '+table.rows.length)*/
+
+    InsertRecord(myFName.value,myLName.value,myloc.value);
+	
+
+}
+
+
+
+
+/*
+function load(){
+
+console.log("page load finished");
+
+}*/
+
+
+
+</script>
+</head>
+<body onload="createTable()">
+
+<div id="mydata" >
+</div>
+<div id="myDynamicTable">
+
+</div>
+
+<div id="MainContent">
+
+    <div id="header">
+        Code Test
+    </div>
+
+    <div id="myform">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="FName">First Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="FName" placeholder="Enter First Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="LName">Last Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="LName" placeholder="Enter Last Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Loc">Home:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="Loc" placeholder="Enter Home" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-success" id="add" onclick="Populate()">Add</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="tableContainer">
+        <table class="table table-bordered" id ="DetailsTable">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Location</th>
+
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>
